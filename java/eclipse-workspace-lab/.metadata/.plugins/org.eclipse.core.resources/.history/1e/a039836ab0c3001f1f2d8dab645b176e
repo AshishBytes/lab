@@ -1,0 +1,99 @@
+import java.sql.*;
+import java.util.Scanner;
+
+public class StudentCRUD {
+
+    // Database credentials
+    private static final String DB_URL = "jdbc:mysql://localhost:3306/StudentDb"; // Change according to your MySQL setup
+    private static final String USER = "root";
+    private static final String PASSWORD = "ashish420";
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        try (Connection conn = DriverManager.getConnection(DB_URL, USER, PASSWORD)) {
+            // Insertion using Statement
+            insertUsingStatement(conn);
+
+            // Update using Statement
+            updateUsingStatement(conn);
+
+            // Delete using Statement
+            deleteUsingStatement(conn);
+
+            // Retrieve all records using Statement
+            retrieveAllUsingStatement(conn);
+
+            // Insertion using PreparedStatement with dynamic input from user
+            insertUsingPreparedStatement(conn, scanner);
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    // 1. Insertion of a record using a Statement
+    private static void insertUsingStatement(Connection conn) throws SQLException {
+        String insertSQL = "INSERT INTO Students (StudentID, Name, Age, Department) VALUES (3, 'Alice', 20, 'Physics')";
+        try (Statement stmt = conn.createStatement()) {
+            stmt.executeUpdate(insertSQL);
+            System.out.println("Record inserted using Statement.");
+        }
+    }
+
+    // 2. Update of a record using a Statement
+    private static void updateUsingStatement(Connection conn) throws SQLException {
+        String updateSQL = "UPDATE Students SET Age = 22 WHERE StudentID = 3";
+        try (Statement stmt = conn.createStatement()) {
+            int rowsAffected = stmt.executeUpdate(updateSQL);
+            System.out.println("Updated record using Statement. Rows affected: " + rowsAffected);
+        }
+    }
+
+    // 3. Deletion of a record using a Statement
+    private static void deleteUsingStatement(Connection conn) throws SQLException {
+        String deleteSQL = "DELETE FROM Students WHERE StudentID = 3";
+        try (Statement stmt = conn.createStatement()) {
+            int rowsAffected = stmt.executeUpdate(deleteSQL);
+            System.out.println("Deleted record using Statement. Rows affected: " + rowsAffected);
+        }
+    }
+
+    // 4. Retrieval of records using a Statement
+    private static void retrieveAllUsingStatement(Connection conn) throws SQLException {
+        String selectSQL = "SELECT * FROM Students";
+        try (Statement stmt = conn.createStatement(); ResultSet rs = stmt.executeQuery(selectSQL)) {
+            System.out.println("All records in the Students table:");
+            while (rs.next()) {
+                int studentID = rs.getInt("StudentID");
+                String name = rs.getString("Name");
+                int age = rs.getInt("Age");
+                String department = rs.getString("Department");
+                System.out.println("ID: " + studentID + ", Name: " + name + ", Age: " + age + ", Department: " + department);
+            }
+        }
+    }
+
+    // 5. Insertion of a record using PreparedStatement with dynamic input from user
+    private static void insertUsingPreparedStatement(Connection conn, Scanner scanner) throws SQLException {
+        System.out.println("Enter StudentID:");
+        int studentID = scanner.nextInt();
+        scanner.nextLine(); // consume the newline
+        System.out.println("Enter Name:");
+        String name = scanner.nextLine();
+        System.out.println("Enter Age:");
+        int age = scanner.nextInt();
+        scanner.nextLine(); // consume the newline
+        System.out.println("Enter Department:");
+        String department = scanner.nextLine();
+
+        String insertSQL = "INSERT INTO Students (StudentID, Name, Age, Department) VALUES (?, ?, ?, ?)";
+        try (PreparedStatement pstmt = conn.prepareStatement(insertSQL)) {
+            pstmt.setInt(1, studentID);
+            pstmt.setString(2, name);
+            pstmt.setInt(3, age);
+            pstmt.setString(4, department);
+            pstmt.executeUpdate();
+            System.out.println("Inserted record using PreparedStatement.");
+        }
+    }
+}

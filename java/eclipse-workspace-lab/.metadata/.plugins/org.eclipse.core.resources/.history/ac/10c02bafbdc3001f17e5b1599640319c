@@ -1,0 +1,3 @@
+module BasicSwingCalculator {
+    requires javax.ejb;
+}

@@ -1,0 +1,22 @@
+<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+
+    <session-config>
+        <session-timeout>
+            <int>30</int>
+        </session-timeout>
+    </session-config>
+
+    <welcome-file-list>
+        <welcome-file>Form.jsp</welcome-file>
+    </welcome-file-list>
+
+    <ejb-jar-ref>
+        <ejb-ref>
+            <ejb-ref-name>ejb/OperationsSessionBean</ejb-ref-name>
+            <ejb-impl-class>com.javacodegeeks.example.ejb.OperationsSessionBean</ejb-impl-class>
+        </ejb-ref>
+    </ejb-jar-ref>
+
+</web-app>

@@ -1,0 +1,13 @@
+INDEX VERSION 1.134
+C:\Users\ashis\Ashish\Workspace\eclipse-workspace-lab\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3920765466.index
+\13 - EJBCalculator\src\main\java
+C:\Users\ashis\Ashish\Workspace\eclipse-workspace-lab\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1944709345.index
+\11 - AvergeCalculator\src\main\java
+C:\Users\ashis\Ashish\Workspace\eclipse-workspace-lab\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3868802164.index
+\10 - AvergeCalculator\src\main\java
+C:\Users\ashis\Ashish\Workspace\eclipse-workspace-lab\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1922834423.index
+\AvergeCalculator\src\main\java
+C:\Users\ashis\Ashish\Workspace\eclipse-workspace-lab\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2756461436.index
+\MVI - AverageCalculator\src\main\java
+C:\Users\ashis\Ashish\Workspace\eclipse-workspace-lab\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1283926240.index
+\avg\src\main\java

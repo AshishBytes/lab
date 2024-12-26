@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename compilation unit &apos;com.ashish.BasicCalculator.java&apos; to &apos;AdvancedCalculator.java&apos;&#x0D;&#x0A;- Original project: &apos;6 - AdvanceSwingCalculator&apos;&#x0D;&#x0A;- Original element: &apos;com.ashish.BasicCalculator.java&apos;&#x0D;&#x0A;- Renamed element: &apos;com.ashish.AdvancedCalculator.java&apos;" description="Rename compilation unit &apos;BasicCalculator.java&apos;" flags="2" id="org.eclipse.jdt.ui.rename.compilationunit" input="/src&lt;com.ashish{BasicCalculator.java" name="AdvancedCalculator.java" references="false" stamp="1735239705655" version="1.0"/>
+</session>
